@@ -1,39 +1,30 @@
-<html lang="en">
+<!DOCTYPE html>
+<html>
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hello</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>RPS</title>
     <link rel="stylesheet" href="style.css">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300&display=swap');
-    </style>
+    <script defer src="script.js"></script>
 </head>
 
-<body>
-    <header>
-        <div class="header">
-            <h1>Make your choice below <span class="arrow">⬇</span></h1>
-        </div>
-    </header>
-
-    <div class="options-container">
-        <div class="buttons">
-            <button onmouseover="showChoice('https://i.postimg.cc/25mHxSWW/lapis.png')" id="button1">Lapis 🪨 </button>
-            <button onmouseover="showChoice('https://i.postimg.cc/cJmFkG7b/papyrus.png')" id="button2">Papyrus
-                📃</button>
-            <button onmouseover="showChoice('https://i.postimg.cc/WzDS4DBB/scalpellus.png')" id="button3">Scalpellus
-                ✂️</button>
-        </div>
-        <h2 id="result"></h2>
-        <div class="images-container">
-            <img id="image_first" src="https://i.postimg.cc/9MQJvgJF/trophy2.png" alt="paper">
-            <img id="image_second" src="https://i.postimg.cc/XJ1Q3KzK/trophy.png" alt="scissors">
-        </div>
-        <div class="result-container"></div>
-    </div>
-
-    <script src="script.js"></script>
+<body class="flex-ctr">
+    <h1>ROCK PAPER SCISSORS</h1>
+    <main>
+        <h2>PLAYER</h2>
+        <h2>TIES</h2>
+        <h2>COMPUTER</h2>
+        <h1 id="p-score"></h1>
+        <h1 id="t-score"></h1>
+        <h1 id="c-score"></h1>
+        <img id="p-result">
+        <div id="countdown" class="flex-ctr"></div>
+        <img id="c-result">
+        <button>R</button>
+        <button>P</button>
+        <button>S</button>
+    </main>
 </body>
 
 </html>
