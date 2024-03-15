@@ -2,6 +2,9 @@
 const AUDIO = new Audio('https://assets.mixkit.co/sfx/preview/mixkit-simple-countdown-922.mp3');
 
 /*----- app's state (variables) -----*/
+let scores; // Object
+let results;
+let winner;
 
 
 /*----- cached element references -----*/
@@ -11,18 +14,22 @@ const AUDIO = new Audio('https://assets.mixkit.co/sfx/preview/mixkit-simple-coun
 
 
 /*----- functions -----*/
+init();
 
-/*----- constants -----*/
-const AUDIO = new Audio('https://assets.mixkit.co/sfx/preview/mixkit-simple-countdown-922.mp3');
+function init() {
+    scores = {
+        p: 0,
+        t: 0,
+        c: 0
+    };
+    results = {
+        p: 'r',
+        c: 'r'
+    };
+    winner = 't';
+    render();
+}
 
-/*----- app's state (variables) -----*/
+function render() {
 
-
-/*----- cached element references -----*/
-
-
-/*----- event listeners -----*/
-
-
-/*----- functions -----*/
-
+}
