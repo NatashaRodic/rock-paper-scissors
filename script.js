@@ -15,6 +15,7 @@ let winner;
 /*----- cached element references -----*/
 const pResultEl = document.getElementById('p-result');
 const cResultEl = document.getElementById('c-result')
+const countdownEl = document.getElementById('countdown')
 
 /*----- event listeners -----*/
 document.querySelector('main').addEventListener('click', handleChoice);
@@ -80,6 +81,28 @@ function renderResults() {
 
 // Transfer/visualize all state to the DOM
 function render() {
-    renderScores()
-    renderResults()
+    renderCountdown(function () {
+        renderScores()
+        renderResults()
+    })
+
+}
+
+function renderCountdown(cb) {
+    let count = 3;
+    AUDIO.currentTime = 0;
+    AUDIO.play();
+    countdownEl.style.visibility = 'visible';
+    countdownEl.innerText = count;
+    const timerId = setInterval(function () {
+        count--;
+        if (count) {
+            countdownEl.innerText = count;
+        } else {
+            clearInterval(timerId)
+            countdownEl.style.visibility = 'hidden'
+            cb();
+        }
+    }, 1000)
+
 }
