@@ -46,6 +46,8 @@ function renderScores() {
 }
 
 function renderResults() {
+    pResultEl.src = RPS_LOOKUP[results.p];
+    cResultEl.src = RPS_LOOKUP[results.c];
 
 }
 
