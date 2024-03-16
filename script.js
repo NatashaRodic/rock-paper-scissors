@@ -1,9 +1,9 @@
 /*----- constants -----*/
 const AUDIO = new Audio('https://assets.mixkit.co/sfx/preview/mixkit-simple-countdown-922.mp3');
 const RPS_LOOKUP = {
-    r: 'https://i.postimg.cc/25mHxSWW/lapis.png',
-    p: 'https://i.postimg.cc/cJmFkG7b/papyrus.png',
-    s: 'https://i.postimg.cc/WzDS4DBB/scalpellus.png',
+    r: { img: 'https://i.postimg.cc/25mHxSWW/lapis.png', beats: 's' },
+    p: { img: 'https://i.postimg.cc/cJmFkG7b/papyrus.png', beats: 'r' },
+    s: { img: 'https://i.postimg.cc/WzDS4DBB/scalpellus.png', beats: 'p' },
 
 }
 /*----- app's state (variables) -----*/
@@ -47,11 +47,13 @@ function handleChoice(e) {
     //Compute a random choice for the computer
     results.c = getRandomRPS();
     winner = getWinner();
+    scores[winner] += 1;
     render()
 }
 
 function getWinner() {
-
+    if (results.p === results.c) return 't';
+    return RPS_LOOKUP[results.p].beats === results.c ? 'p' : 'c';
 }
 
 function getRandomRPS() {
@@ -70,8 +72,8 @@ function renderScores() {
 }
 
 function renderResults() {
-    pResultEl.src = RPS_LOOKUP[results.p];
-    cResultEl.src = RPS_LOOKUP[results.c];
+    pResultEl.src = RPS_LOOKUP[results.p].img;
+    cResultEl.src = RPS_LOOKUP[results.c].img;
 
 }
 
